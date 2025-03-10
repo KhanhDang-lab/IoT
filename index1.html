@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home - Trang chủ</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+     body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-image: url('image/smarthome.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(0, 123, 255, 0.9);
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            height: 60px;
+            margin-right: 20px;
+            position: absolute;
+            left: 20px;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1s ease-out;
+            max-width: 800px;
+            margin: 150px auto 50px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h1, h2 {
+            color: #007bff;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .menu button {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .menu button:hover {
+            background-color: #0056b3;
+            transform: translateY(-8px);
+        }
+
+        .menu button:focus {
+            outline: none;
+        }
+
+        .fade-page {
+            animation: fadeOut 0.5s ease-in-out;
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="image/logotruong.png" alt="Logo" class="logo">
+        <span>Smart Home - Trang chủ</span>
+    </div>
+    <div class="container">
+        <h1>Chọn khu vực để điều khiển</h1>
+        <div class="menu">
+            <button onclick="navigate('phongkhach.html')">Phòng khách</button>
+            <button onclick="navigate('phongngu.html')">Phòng ngủ</button>
+            <button onclick="navigate('bancong.html')">Ban công</button>
+            <button onclick="navigate('sanvuon.html')">Sân vườn</button>
+        </div>
+    </div>
+    <div class="footer">
+        Thực tập cơ sở và ứng dụng IoT<br>
+        Đặng Quốc Khánh - Trần Cao Minh Khôi
+    </div>
+
+    <script>
+        function navigate(url) {
+            document.body.classList.add('fade-page');
+            setTimeout(() => {
+                window.location.href = url;
+            }, 500);
+        }
+    </script>
+</body>
+</html>

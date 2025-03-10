@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sân vườn - Smart Home</title>
+    <link rel="stylesheet" href="csssanvuon.css">
+</head>
+<body>
+    <div id="header">
+        <h1>Sân vườn - Smart Home</h1>
+        <a href="index1.html">Quay lại Trang chính</a>
+    </div>
+
+    <div class="info-container">
+        <div class="info-box">
+            <img src="image/mattroi.gif" alt="Nhiệt độ">
+            <h2>Nhiệt độ</h2>
+            <p id="nhietdo">-- °C</p>
+        </div>
+        <div class="info-box">
+            <img src="image/doam.jpg" alt="Độ ẩm trong đất">
+            <h2>Độ ẩm trong đất</h2>
+            <p id="doam">-- mm</p>
+        </div>
+        <div class="info-box">
+            <img src="image/luongmua.jpg" alt="Lượng mưa">
+            <h2>Lượng mưa</h2>
+            <p id="luongmua">-- µg/m³</p>
+        </div>
+    </div>
+
+    <div id="bot">
+        <div class="device-box">
+            <h1><center><img src="image/voitat.png" id="call"></center>
+                <button type="button" id="btn1">On</button>
+                <button type="button" id="btn2">Off</button><br><br>
+            </h1>
+            <h2>vòi nước</h2>
+        </div>
+        <div class="device-box">
+            <h1><center><img src="image/quattat.png" id="led"></center>
+                <button type="button" id="btn3">On</button>
+                <button type="button" id="btn4">Off</button><br><br>
+            </h1>
+            <h3><center>Quạt thông gió</center></h3>
+        </div>
+        <div class="device-box">
+            <h1><center><img src="image/den1.png" id="loa"></center>
+                <button type="button" id="btn5">On</button>
+                <button type="button" id="btn6">Off</button><br><br>
+            </h1>
+            <h4>Đèn</h4>
+        </div>
+    </div>
+
+    <div id="footer">
+        <ul>
+            <li>Thực tập cơ sở và ứng dụng IoT</li>
+            <li>Đặng Quốc Khánh - Trần Cao Minh Khôi</li>
+        </ul>
+    </div>
+
+    <script src="functionsanvuon.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
+
+    <script>
+      // Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyC6Q4SM9gQaCUgyANBUdJmClPiT7zpOcns",
+        authDomain: "smart-home-c530a.firebaseapp.com",
+        projectId: "smart-home-c530a",
+        storageBucket: "smart-home-c530a.firebasestorage.app",
+        messagingSenderId: "969823463702",
+        appId: "1:969823463702:web:f8b6e7019a95afd8e38837",
+        measurementId: "G-SMLRT8L2SJ"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Get references to Firebase data
+      var nhietDo = document.getElementById('nhietdo');
+      var doAm = document.getElementById('doam');
+      var luongMua = document.getElementById('luongmua');
+
+      var dbRefNhietDo = firebase.database().ref('San/Nhietdos');
+      var dbRefDoAm = firebase.database().ref('San/Doamtrongdat');
+      var dbRefLuongMua = firebase.database().ref('San/Luongmuas');
+
+      // Real-time data fetching
+      dbRefNhietDo.on('value', snap => nhietDo.innerText = snap.val() || '-- °C');
+      dbRefDoAm.on('value', snap => doAm.innerText = snap.val() || '-- mm');
+      dbRefLuongMua.on('value', snap => luongMua.innerText = snap.val() || '-- µg/m³');
+    </script>
+</body>
+</html>
