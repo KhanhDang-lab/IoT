@@ -7,11 +7,11 @@ let btn2 = document.querySelector('#btn2');
 // const deviceRef=database.ref('quan1');
 
 btn1.addEventListener('click', ()=>{
-    img1.src = 'image/tivibat.jpg'; 
+    img1.src = 'image/voibat.png'; 
     firebase.database().ref("thietbi1").set({tivi: 1})
 })
 btn2.addEventListener('click', ()=>{
-    img1.src = 'image/tivitat.jpg';
+    img1.src = 'image/voitat.png';
     firebase.database().ref("thietbi1").set({tivi: 0})
 })
 
@@ -22,12 +22,12 @@ let img2 = document.querySelector('#led');
 let btn4 = document.querySelector('#btn4');
 // functions nut bam
 btn3.addEventListener('click', ()=>{
-    img2.src = 'image/fan_on.png'; 
+    img2.src = 'image/quatbat.gif'; 
     firebase.database().ref("thietbi2").set({den1:1})
 })
 
 btn4.addEventListener('click', ()=>{
-    img2.src = 'image/fan_off.png';
+    img2.src = 'image/quattat.png';
     firebase.database().ref("thietbi2").set({den1:0})
 })
 
@@ -49,4 +49,3 @@ btn6.addEventListener('click', ()=>{
     firebase.database().ref("thietbi3").set({loa: 0})
 
 })
-
