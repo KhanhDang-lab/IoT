@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phòng Ngủ - Smart Home</title>
+    <link rel="stylesheet" href="cssphongngu.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header">
+        <h1>Phòng Ngủ - Smart Home</h1>
+        <a href="index1.html">Quay lại Trang chính</a>
+    </div>
+
+    <!-- Thông tin môi trường -->
+    <div class="info-container">
+        <div class="info-box">
+            <img src="image/nhietdo.jpg" alt="Nhiệt độ">
+            <h2>Nhiệt độ</h2>
+            <p id="nhietdo">-- °C</p>
+        </div>
+        <div class="info-box">
+            <img src="image/doam1.png" alt="Độ ẩm">
+            <h2>Độ ẩm</h2>
+            <p id="doam">-- %</p>
+        </div>
+        <div class="info-box">
+            <img src="image/Bui_min.png" alt="PM 2.5">
+            <h2>PM 2.5</h2>
+            <p id="luongmua">-- µg/m³</p>
+        </div>
+    </div>
+
+    <!-- Biểu đồ dữ liệu realtime -->
+    <div class="chart-container">
+        <h2>Biểu đồ theo thời gian thực</h2>
+        <canvas id="realtimeChart" width="400" height="200"></canvas>
+    </div>
+
+    <!-- Điều khiển thiết bị -->
+    <div id="bot">
+        <div class="device-box">
+            <img src="image/tivitat.jpg" id="call">
+            <h2>Ti vi</h2>
+            <button type="button" id="btn1">On</button>
+            <button type="button" id="btn2">Off</button>
+        </div>
+        <div class="device-box">
+            <img src="image/fan_off.png" id="led">
+            <h2>Máy lạnh</h2>
+            <button type="button" id="btn3">On</button>
+            <button type="button" id="btn4">Off</button>
+        </div>
+        <div class="device-box">
+            <img src="image/den1.png" id="loa">
+            <h2>Đèn</h2>
+            <button type="button" id="btn5">On</button>
+            <button type="button" id="btn6">Off</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+        <ul>
+            <li>Thực tập cơ sở và ứng dụng IoT</li>
+            <li>Đặng Quốc Khánh - Trần Cao Minh Khôi</li>
+        </ul>
+    </div>
+
+    <!-- Firebase & JS -->
+    <script src="try.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
+</body>
+</html>

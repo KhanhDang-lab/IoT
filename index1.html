@@ -6,22 +6,18 @@
     <title>Smart Home - Trang chủ</title>
     <link rel="stylesheet" href="style.css">
     <style>
-     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        height: 100vh;
-        background-image: url('image/smarthome.jpg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('image/smarthome.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .header {
@@ -51,31 +47,24 @@
         .container {
             text-align: center;
             background: white;
-            padding: 50px;
+            padding: 40px 20px;
             border-radius: 20px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             animation: slideIn 1s ease-out;
-            max-width: 800px;
-            margin: 150px auto 50px;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        h1, h2 {
-            color: #007bff;
+            max-width: 900px;
+            width: 90%;
+            margin: 120px auto 20px;
         }
 
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 30px;
+            font-size: 2.2em;
+            color: #007bff;
         }
 
         .menu {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 20px;
         }
 
@@ -93,20 +82,24 @@
 
         .menu button:hover {
             background-color: #0056b3;
-            transform: translateY(-8px);
+            transform: translateY(-5px);
         }
 
-        .menu button:focus {
-            outline: none;
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
         }
 
-        .fade-page {
-            animation: fadeOut 0.5s ease-in-out;
-        }
-
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
+        #chart_div_chinh {
+            width: 100%;
+            max-width: 700px;
+            height: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .footer {
@@ -114,14 +107,17 @@
             color: white;
             text-align: center;
             padding: 20px;
+            margin-top: 20px;
         }
     </style>
 </head>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <body>
     <div class="header">
         <img src="image/logotruong.png" alt="Logo" class="logo">
         <span>Smart Home - Trang chủ</span>
     </div>
+
     <div class="container">
         <h1>Chọn khu vực để điều khiển</h1>
         <div class="menu">
@@ -130,7 +126,20 @@
             <button onclick="navigate('bancong.html')">Ban công</button>
             <button onclick="navigate('sanvuon.html')">Sân vườn</button>
         </div>
+
+        <!-- Biểu đồ -->
+        <div class="chart-container">
+            <div id="chart_div_chinh"></div>
+        </div>
     </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+    <!-- Script xử lý -->
+    <script src="functionchinh.js"></script>
+
     <div class="footer">
         Thực tập cơ sở và ứng dụng IoT<br>
         Đặng Quốc Khánh - Trần Cao Minh Khôi

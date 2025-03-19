@@ -49,3 +49,4 @@ btn6.addEventListener('click', ()=>{
     firebase.database().ref("thietbi3").set({loa: 0})
 
 })
+
