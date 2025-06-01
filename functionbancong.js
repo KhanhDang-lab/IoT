@@ -8,11 +8,11 @@ let btn2 = document.querySelector('#btn2');
 
 btn1.addEventListener('click', ()=>{
     img1.src = 'image/voibat.png'; 
-    firebase.database().ref("thietbi1").set({tivi: 1})
+    firebase.database().ref("thietbi4").set({voi: 1})
 })
 btn2.addEventListener('click', ()=>{
     img1.src = 'image/voitat.png';
-    firebase.database().ref("thietbi1").set({tivi: 0})
+    firebase.database().ref("thietbi4").set({voi: 0})
 })
 
 
@@ -23,12 +23,12 @@ let btn4 = document.querySelector('#btn4');
 // functions nut bam
 btn3.addEventListener('click', ()=>{
     img2.src = 'image/remmo.gif'; 
-    firebase.database().ref("thietbi2").set({den1:1})
+    firebase.database().ref("thietbi6").set({rem:1})
 })
 
 btn4.addEventListener('click', ()=>{
     img2.src = 'image/remdong.jpg';
-    firebase.database().ref("thietbi2").set({den1:0})
+    firebase.database().ref("thietbi6").set({rem:0})
 })
 
 
@@ -41,11 +41,11 @@ let btn6 = document.querySelector('#btn6');
 // functions nut bam
 btn5.addEventListener('click', ()=>{
      img3.src = 'image/denon.gif' ;
-     firebase.database().ref("thietbi3").set({loa:1})
+     firebase.database().ref("thietbi2").set({den1:1})
 
 })
 btn6.addEventListener('click', ()=>{
     img3.src = 'image/den.jpg';
-    firebase.database().ref("thietbi3").set({loa: 0})
+    firebase.database().ref("thietbi2").set({den1: 0})
 
 })

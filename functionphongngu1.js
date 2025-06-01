@@ -23,30 +23,30 @@ let btn4 = document.querySelector('#btn4');
 // functions nut bam
 btn3.addEventListener('click', ()=>{
     img2.src = 'image/fan_on.png'; 
-    firebase.database().ref("thietbi2").set({den1:1})
+    firebase.database().ref("thietbi5").set({fan:1})
 })
 
 btn4.addEventListener('click', ()=>{
     img2.src = 'image/fan_off.png';
-    firebase.database().ref("thietbi2").set({den1:0})
+    firebase.database().ref("thietbi5").set({fan:0})
 })
 
 
 
 // khoi tao cac thong s
 let btn5 = document.querySelector('#btn5');
-let img3 = document.querySelector('#loa');
+let img3 = document.querySelector('#den');
 let btn6 = document.querySelector('#btn6');
 
 // functions nut bam
 btn5.addEventListener('click', ()=>{
      img3.src = 'image/denon.gif' ;
-     firebase.database().ref("thietbi3").set({loa:1})
+     firebase.database().ref("thietbi2").set({den1:1})
 
 })
 btn6.addEventListener('click', ()=>{
     img3.src = 'image/den.jpg';
-    firebase.database().ref("thietbi3").set({loa: 0})
+    firebase.database().ref("thietbi2").set({den1: 0})
 
 })
 

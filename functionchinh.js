@@ -35,9 +35,9 @@ var dbRef = {
         Buimin: firebase.database().ref('Bancong/Buiminb')
     },
     San: {
-        Nhietdo: firebase.database().ref('San/Nhietdos'),
-        Doamtrongdat: firebase.database().ref('San/Doamtrongdat'),
-        Luongmua: firebase.database().ref('San/Luongmuas')
+        Nhietdo: firebase.database().ref('Phongbep/Nhietdop'),
+        Doam: firebase.database().ref('Phongbep/Doamp'),
+        Khigas: firebase.database().ref('Phongbep/Khigasp')
     }
 };
 
@@ -54,7 +54,7 @@ function initChart() {
     data.addColumn('number', 'Độ ẩm (%)');
     data.addColumn('number', 'Bụi mịn (µg/m³)');
     data.addColumn('number', 'Lượng mưa (mm)');
-    data.addColumn('number', 'Độ ẩm trong đất (%)');
+    data.addColumn('number', 'Khí gas (ppm)');
 
     // Cấu hình biểu đồ
     options = {
@@ -86,11 +86,11 @@ function updateChartRealtime() {
     firebase.database().ref().on('value', snapshot => {
         if (snapshot.exists()) {
             let newData = [
-                ['Khu vực', 'Nhiệt độ (°C)', 'Độ ẩm (%)', 'Bụi mịn (µg/m³)', 'Lượng mưa (mm)', 'Độ ẩm trong đất (%)'],
+                ['Khu vực', 'Nhiệt độ (°C)', 'Độ ẩm (%)', 'Bụi mịn (µg/m³)', 'Lượng mưa (mm)', 'Khí gas (ppm)'],
                 ['Phòng ngủ', getValue(snapshot, 'Phongngu/Nhietdon'), getValue(snapshot, 'Phongngu/Doamn'), getValue(snapshot, 'Phongngu/Buiminn'), 0, 0], // Không có lượng mưa và độ ẩm đất
                 ['Phòng khách', getValue(snapshot, 'Phongkhach/Nhietdok'), getValue(snapshot, 'Phongkhach/Doamk'), getValue(snapshot, 'Phongkhach/buiminpk'), 0, 0], // Không có lượng mưa và độ ẩm đất
                 ['Ban công', getValue(snapshot, 'Bancong/Nhietdob'), 0, getValue(snapshot, 'Bancong/Buiminb'), getValue(snapshot, 'Bancong/Luongmuab'), 0], // Có lượng mưa
-                ['Sân vườn', getValue(snapshot, 'San/Nhietdos'), 0, 0, getValue(snapshot, 'San/Luongmuas'), getValue(snapshot, 'San/Doamtrongdat')] // Có cả lượng mưa và độ ẩm đất
+                ['Phòng bếp', getValue(snapshot, 'Phongbep/Nhietdop'), getValue(snapshot, 'Phongbep/Doamp'), 0, 0, getValue(snapshot, 'Phongbep/Khigasp')] // Có cả lượng mưa và độ ẩm đất
             ];
 
             // Cập nhật dữ liệu biểu đồ

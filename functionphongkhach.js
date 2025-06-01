@@ -4,7 +4,6 @@ let img1 = document.querySelector('#call');
 let btn2 = document.querySelector('#btn2');
 // functions nut bam
 // const database=firebase.database();
-// const deviceRef=database.ref('quan1');
 
 btn1.addEventListener('click', ()=>{
     img1.src = 'image/tivibat.jpg'; 
@@ -23,12 +22,12 @@ let btn4 = document.querySelector('#btn4');
 // functions nut bam
 btn3.addEventListener('click', ()=>{
     img2.src = 'image/quatbat.gif'; 
-    firebase.database().ref("thietbi2").set({den1:1})
+    firebase.database().ref("thietbi2").set({quat:1})
 })
 
 btn4.addEventListener('click', ()=>{
     img2.src = 'image/quattat.png';
-    firebase.database().ref("thietbi2").set({den1:0})
+    firebase.database().ref("thietbi2").set({quat:0})
 })
 
 
@@ -41,11 +40,11 @@ let btn6 = document.querySelector('#btn6');
 // functions nut bam
 btn5.addEventListener('click', ()=>{
      img3.src = 'image/denon.gif' ;
-     firebase.database().ref("thietbi3").set({loa:1})
+     firebase.database().ref("thietbi3").set({den1:1})
 
 })
 btn6.addEventListener('click', ()=>{
     img3.src = 'image/den.jpg';
-    firebase.database().ref("thietbi3").set({loa: 0})
+    firebase.database().ref("thietbi3").set({den1: 0})
 
 })

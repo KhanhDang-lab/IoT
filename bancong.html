@@ -21,12 +21,12 @@
         <div class="info-box">
             <img src="image/luongmua.jpg" alt="Lượng mưa">
             <h2>Lượng mưa</h2>
-            <p id="doam">-- mm</p>
+            <p id="luongmua">-- mm</p>
         </div>
         <div class="info-box">
             <img src="image/Bui_min.png" alt="PM 2.5">
             <h2>PM 2.5</h2>
-            <p id="luongmua">-- µg/m³</p>
+            <p id="buimin">-- µg/m³</p>
         </div>
     </div>
 
@@ -36,7 +36,7 @@
                 <button type="button" id="btn1">On</button>
                 <button type="button" id="btn2">Off</button><br><br>
             </h1>
-            <h3>vòi nước</h3>
+            <h3>Vòi nước</h3>
         </div>
         <div class="device-box">
             <h1><center><img src="image/remdong.jpg" id="led"></center>
@@ -82,17 +82,17 @@
 
       // Get references to Firebase data
       var nhietDo = document.getElementById('nhietdo');
-      var doAm = document.getElementById('doam');
       var luongMua = document.getElementById('luongmua');
+      var buiMin = document.getElementById('buimin');
 
       var dbRefNhietDo = firebase.database().ref('Bancong/Nhietdob');
-      var dbRefDoAm = firebase.database().ref('Bancong/Luongmuab');
-      var dbRefLuongMua = firebase.database().ref('Bancong/Buiminb');
+      var dbRefLuongMua = firebase.database().ref('Bancong/Luongmuab');
+      var dbRefBuiMin = firebase.database().ref('Bancong/Buiminb');
 
       // Real-time data fetching
       dbRefNhietDo.on('value', snap => nhietDo.innerText = snap.val() || '-- °C');
-      dbRefDoAm.on('value', snap => doAm.innerText = snap.val() || '-- mm');
-      dbRefLuongMua.on('value', snap => luongMua.innerText = snap.val() || '-- µg/m³');
+      dbRefLuongMua.on('value', snap => luongMua.innerText = snap.val() || '-- mm');
+      dbRefBuiMin.on('value', snap => buiMin.innerText = snap.val() || '-- µg/m³');
     </script>
 </body>
 </html>

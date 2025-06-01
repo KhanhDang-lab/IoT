@@ -26,7 +26,7 @@
         <div class="info-box">
             <img src="image/Bui_min.png" alt="PM 2.5">
             <h2>PM 2.5</h2>
-            <p id="luongmua">-- µg/m³</p>
+            <p id="buimin">-- µg/m³</p>
         </div>
     </div>
 
@@ -83,16 +83,16 @@
       // Get references to Firebase data
       var nhietDo = document.getElementById('nhietdo');
       var doAm = document.getElementById('doam');
-      var luongMua = document.getElementById('luongmua');
+      var buiMin = document.getElementById('buimin');
 
       var dbRefNhietDo = firebase.database().ref('Phongngu/Nhietdon');
       var dbRefDoAm = firebase.database().ref('Phongngu/Doamn');
-      var dbRefLuongMua = firebase.database().ref('Phongngu/Buiminn');
+      var dbRefBuiMin = firebase.database().ref('Phongngu/Buiminn');
 
       // Real-time data fetching
       dbRefNhietDo.on('value', snap => nhietDo.innerText = snap.val() || '-- °C');
       dbRefDoAm.on('value', snap => doAm.innerText = snap.val() || '-- %');
-      dbRefLuongMua.on('value', snap => luongMua.innerText = snap.val() || '-- µg/m³');
+      dbRefBuiMin.on('value', snap => buiMin.innerText = snap.val() || '-- µg/m³');
     </script>
 </body>
 </html>
